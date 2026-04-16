@@ -6,7 +6,7 @@
    <div class="container">
         <h2>Màn hình đăng nhập</h2>
 
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" action="{{ route('user.authUser') }}">
             @csrf
 
             <div class="form-group">
