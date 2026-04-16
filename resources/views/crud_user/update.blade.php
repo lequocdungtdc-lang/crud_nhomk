@@ -1,7 +1,8 @@
+<!--update user-->
 @extends('dashboard')
 
         @section('content')
-    
+
     <!-- Form -->
     <div class="container">
     <h2>Màn hình cập nhật</h2>
