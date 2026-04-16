@@ -30,10 +30,15 @@ class CrudUserController extends Controller
      * User submit form login
      */
     public function authUser(Request $request)
-    {
-        $request->validate([
-            'email' => 'required',
-            'password' => 'required',
+        {
+            $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|min:6',
+        ], [
+            'email.required' => 'Vui lòng nhập email',
+            'email.email' => 'Email không hợp lệ',
+            'password.required' => 'Vui lòng nhập mật khẩu',
+            'password.min' => 'Mật khẩu phải >= 6 ký tự',
         ]);
 
         $credentials = $request->only('email', 'password');
