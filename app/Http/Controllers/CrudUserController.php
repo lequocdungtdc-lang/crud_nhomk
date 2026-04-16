@@ -59,6 +59,27 @@ class CrudUserController extends Controller
         return view('crud_user.create');
     }
 
+    public function postRegister(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:6|confirmed',
+        ], [
+            'email.unique' => 'Email đã tồn tại',
+            'password.confirmed' => 'Xác nhận mật khẩu không khớp',
+        ]);
+
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+        return redirect("login");
+    }
+
+
     /**
      * User submit form register
      */

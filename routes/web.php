@@ -9,6 +9,7 @@ Route::get('login', [CrudUserController::class, 'login'])->name('login');
 Route::post('login', [CrudUserController::class, 'authUser'])->name('user.authUser');
 
 Route::get('register', [CrudUserController::class, 'register'])->name('register');
+Route::post('register', [CrudUserController::class, 'postRegister'])->name('postRegister');
 
 Route::get('create', [CrudUserController::class, 'createUser'])->name('user.createUser');
 Route::post('create', [CrudUserController::class, 'postUser'])->name('user.postUser');
