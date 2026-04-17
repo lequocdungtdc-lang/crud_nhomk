@@ -11,7 +11,7 @@
             <p><strong>Email:</strong> {{ $messi->email }}</p>
         </div>
 
-        <a href="#" class="btn-primary">Chỉnh sửa</a>
+      <a href="{{ route('user.updateUser', ['id' => $messi->id]) }}" class="btn-primary">Chỉnh sửa</a>
     </div>
 
     <!-- Footer -->
