@@ -1,0 +1,17 @@
+services:
+  app:
+    image: php:8.4-fpm
+    container_name: laravel_app
+    volumes:
+      - .:/var/www
+    working_dir: /var/www
+    user: "1000:1000"
+
+  web:
+    image: nginx:latest
+    container_name: laravel_nginx
+    ports:
+      - "8000:80"
+    volumes:
+      - .:/var/www
+      - ./nginx:/etc/nginx/conf.d
